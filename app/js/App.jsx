@@ -22,11 +22,20 @@ var episodes = [
 ];
 
 var FilterableEpisodeTable = React.createClass({
+    getInitialState: function() {
+        return {
+            searchTerm: ''
+        }
+    },
+    onSearchInput: function(term) {
+        this.setState({searchTerm: term})
+        console.log(this.state)
+    },
     render: function() {
         return (
             <div className="spacer">
-                <SearchBar />
-                <Table episodes={this.props.episodes} />
+                <SearchBar searchTerm={this.state.searchTerm} onSearchInput={this.onSearchInput} />
+                <Table searchTerm={this.state.searchTerm} episodes={this.props.episodes} />
             </div>
         )
     }

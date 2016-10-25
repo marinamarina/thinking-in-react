@@ -3,15 +3,10 @@ import ReactDOM from 'react-dom'
 import TableRow from './TableRow'
 
 var Table = React.createClass({
-    /*getInitialState: function() {
-        return {
-            searchTerm: ''
-            }
-    },*/
     render: function() {
-        var rows = this.props.episodes.map(function(episode) {
-            return <TableRow key={episode.title} episode={episode} />
-        });
+        var rows = this.props.episodes
+                    .filter(episode => episode.title.toLowerCase().indexOf(this.props.searchTerm.toLowerCase()) > -1 )
+                    .map(episode => <TableRow key={episode.title} episode={episode} />)
         return (
             <div className="row spacer">
             <div className="col-lg-4 col-lg-offset-4">
