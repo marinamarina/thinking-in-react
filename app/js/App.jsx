@@ -29,7 +29,6 @@ var FilterableEpisodeTable = React.createClass({
     },
     onSearchInput: function(term) {
         this.setState({searchTerm: term})
-        console.log(this.state)
     },
     render: function() {
         return (
