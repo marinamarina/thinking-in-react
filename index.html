@@ -5,98 +5,13 @@
     <title>Thinking in React</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="app/css/main.css" />
-    <script src="https://unpkg.com/react@15.3.0/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15.3.0/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <div id="container">
-
-    </div>
-    <script type="text/jsx">
-        var episodes = [
-            {
-                title: 'Episode 1',
-                link: 'http://tagtree.tv/ecmascript-6-episode-1',
-                date: new Date(2014, 3, 6)
-            },
-            {
-                title: 'Episode 2',
-                link: 'http://tagtree.tv/ecmascript-6-episode-2',
-                date: new Date(2014, 3, 6)
-            },
-            {
-                title: 'Episode 3',
-                link: 'http://tagtree.tv/ecmascript-6-episode-3',
-                date: new Date(2014, 3, 6)
-            }
-        ]
-
-        var TableRow = React.createClass({
-            render: function() {
-                return (
-                    <tr>
-                       <td>{this.props.episode.title}</td>
-                        <td>
-                            <a href="#">View</a>
-                        </td>
-                    </tr>
-                )
-            }
-        });
-
-        var Table = React.createClass({
-            render: function() {
-            console.log(this.props.episodes)
-                var rows = this.props.episodes.map(function(episode) {
-                    return <TableRow key={episode.title} episode={episode} />
-                });
-                return (
-                 <div className="row spacer">
-                    <div className="col-lg-4 col-lg-offset-4">
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Link</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {rows}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                )
-            }
-        })
-
-        var SearchBar = React.createClass({
-            render: function() {
-                return (
-                    <div className="row">
-                        <div className="col-lg-4 col-lg-offset-4">
-                            <input type="search" className="form-control" placeholder="Search for an episode" />
-                        </div>
-                    </div>
-                )
-            }
-        })
-
-        var FilterableEpisodeTable = React.createClass({
-            render: function() {
-                return (
-                    <div className="spacer">
-                        <SearchBar />
-                        <Table episodes={this.props.episodes} />
-                    </div>
-                )
-            }
-        })
-
-
-
-        ReactDOM.render(<FilterableEpisodeTable episodes={episodes} />, document.getElementById('container'))
-    </script>
+    <div id="container"></div>
+    <div id="app"></div>
+     <script src="public/bundle.js"></script>
   </body>
 </html>
